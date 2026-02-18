@@ -1,0 +1,666 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Photography & Videography Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    :root {
+        --primary-dark: #1a1a1a;
+        --secondary-dark: #2c3e50;
+        --text-gray: #333333;
+        --light-gray: #666666;
+        --accent-gold: #c9a961;
+        --bg-light: #f8f8f8;
+        --white: #ffffff;
+    }
+
+    body {
+        font-family: 'Work Sans', sans-serif;
+        color: var(--text-gray);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 1.5rem 5%;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--text-gray);
+        font-weight: 500;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: var(--accent-gold);
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 20% 50%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 5rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+        letter-spacing: -2px;
+    }
+
+    .hero .subtitle {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-bottom: 0.5rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero .tagline {
+        font-size: 1.1rem;
+        color: var(--accent-gold);
+        font-weight: 400;
+        margin-top: 1rem;
+        font-style: italic;
+    }
+
+    .cta-button {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 1rem 3rem;
+        background: var(--accent-gold);
+        color: var(--primary-dark);
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+    }
+
+    /* Section Styles */
+    section {
+        padding: 6rem 10%;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--primary-dark);
+        text-align: center;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        color: var(--light-gray);
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* About Section */
+    #about {
+        background: var(--white);
+    }
+
+    .about-content {
+        max-width: 900px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .about-content p {
+        margin-bottom: 1.5rem;
+        text-align: justify;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+        text-align: center;
+    }
+
+    .stat-item {
+        padding: 2rem;
+        background: var(--bg-light);
+        border-left: 3px solid var(--accent-gold);
+    }
+
+    .stat-number {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--accent-gold);
+        display: block;
+    }
+
+    .stat-label {
+        color: var(--light-gray);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 0.5rem;
+    }
+
+    /* Skills Section */
+    #skills {
+        background: var(--bg-light);
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 3rem;
+    }
+
+    .skill-category {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: 2px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-category:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .skill-category h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--secondary-dark);
+        border-bottom: 2px solid var(--accent-gold);
+        padding-bottom: 0.5rem;
+    }
+
+    .skill-category ul {
+        list-style: none;
+    }
+
+    .skill-category li {
+        padding: 0.5rem 0;
+        color: var(--text-gray);
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .skill-category li::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: var(--accent-gold);
+        font-weight: bold;
+    }
+
+    /* Portfolio Section */
+    #portfolio {
+        background: var(--white);
+    }
+
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        background: var(--primary-dark);
+        aspect-ratio: 9/16;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+
+    .portfolio-item:hover {
+        transform: scale(1.02);
+    }
+
+    .portfolio-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #2c3e50 0%, #1a1a1a 100%);
+        color: var(--white);
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .portfolio-placeholder-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        opacity: 0.3;
+    }
+
+    .portfolio-placeholder h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .portfolio-placeholder p {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        max-width: 250px;
+    }
+
+    .video-embed {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Contact Section */
+    #contact {
+        background: var(--bg-light);
+        text-align: center;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .contact-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .contact-item-label {
+        font-weight: 600;
+        color: var(--secondary-dark);
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .contact-item-value {
+        color: var(--text-gray);
+        font-size: 1.1rem;
+    }
+
+    .contact-item a {
+        color: var(--text-gray);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .contact-item a:hover {
+        color: var(--accent-gold);
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .social-links a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-dark);
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: all 0.3s;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .social-links a:hover {
+        background: var(--accent-gold);
+        color: var(--white);
+        transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+        background: var(--primary-dark);
+        color: var(--white);
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            gap: 1.5rem;
+        }
+
+        section {
+            padding: 4rem 5%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+        }
+
+        .portfolio-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+            flex-direction: column;
+            gap: 2rem;
+        }
+    }
+
+    /* Smooth Scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+```
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>YOUR NAME</h1>
+        <p class="subtitle">Photography & Videography</p>
+        <p class="tagline">Capturing Life's Moments, One Frame at a Time</p>
+        <a href="#portfolio" class="cta-button">VIEW MY WORK</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">Storyteller | Content Creator | Social Media Strategist</p>
+    <div class="about-content fade-in">
+        <p>
+            With over 6 years of experience, I've explored the diverse world of visual storytelling through both photography and videography. My journey has taken me through various creative disciplines—from capturing intimate wedding moments and serene milk bath sessions to documenting the powerful experience of birthing photography. I've worked with products that need to shine, athletes in motion, and even the intricate beauty of macro and nature photography.
+        </p>
+        <p>
+            But great visuals are only half the story. I've developed a sharp eye for social media strategy, understanding not just how to capture stunning content, but when to post it for maximum impact. I craft catchy taglines and captions that resonate with audiences, optimize content for SEO to ensure discoverability, and know how to make content work across different platforms. The results speak for themselves—several of my videos have surpassed 50,000 views and continue trending even months after posting, proving that strategic content has lasting power.
+        </p>
+        <p>
+            This combination of creative and strategic thinking sets me apart. Whether I'm behind a professional DSLR or using an iPhone to capture spontaneous moments, I'm always thinking about the full content lifecycle—from shoot to post to long-term engagement. Whether it's Instagram, TikTok, or other social channels, I understand the algorithms and engagement patterns that make content not just succeed, but sustain. Each project receives not just creative vision, but strategic execution that delivers real, measurable results.
+        </p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-item">
+            <span class="stat-number">6+</span>
+            <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">50K+</span>
+            <span class="stat-label">Video Views</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">100+</span>
+            <span class="stat-label">Projects Completed</span>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <h2 class="section-title">Skills & Tools</h2>
+    <p class="section-subtitle">Expertise across photography, videography, editing, and social strategy</p>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3>Editing Software</h3>
+            <ul>
+                <li>Adobe Lightroom</li>
+                <li>Adobe Photoshop</li>
+                <li>Color Grading & Correction</li>
+                <li>Photo Retouching & Image Enhancement</li>
+            </ul>
+        </div>
+
+        <div class="skill-category">
+            <h3>Equipment</h3>
+            <ul>
+                <li>Professional DSLR Cameras</li>
+                <li>iPhone Photography</li>
+                <li>Multiple Lens Options</li>
+                <li>Lighting Equipment & Stabilizers</li>
+            </ul>
+        </div>
+
+        <div class="skill-category">
+            <h3>Specialties</h3>
+            <ul>
+                <li>Wedding Photography</li>
+                <li>Milk Bath Sessions</li>
+                <li>Birthing Photography</li>
+                <li>Product Photography</li>
+                <li>Sports & Action</li>
+                <li>Macro & Nature Photography</li>
+            </ul>
+        </div>
+
+        <div class="skill-category">
+            <h3>Social Media & Content Strategy</h3>
+            <ul>
+                <li>Viral Content Creation (50K+ views)</li>
+                <li>Strategic Content Scheduling & Timing</li>
+                <li>SEO-Optimized Captions & Taglines</li>
+                <li>Performance Analytics & Data-Driven Strategy</li>
+                <li>Cross-Platform Content Optimization</li>
+                <li>Algorithm Understanding & Trend Forecasting</li>
+                <li>Audience Engagement & Community Building</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio">
+    <h2 class="section-title">Selected Works</h2>
+    <p class="section-subtitle">A showcase of my recent projects</p>
+    <div class="portfolio-grid">
+        <!-- Portfolio Item 1 -->
+        <div class="portfolio-item">
+            <div class="portfolio-placeholder">
+                <div class="portfolio-placeholder-icon">📹</div>
+                <h4>Project 1</h4>
+                <p>Replace this placeholder with your TikTok video embed or thumbnail</p>
+            </div>
+            <!-- To embed a TikTok video, replace the placeholder div with:
+            <iframe class="video-embed" src="YOUR_TIKTOK_EMBED_URL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            -->
+        </div>
+
+        <!-- Portfolio Item 2 -->
+        <div class="portfolio-item">
+            <div class="portfolio-placeholder">
+                <div class="portfolio-placeholder-icon">📸</div>
+                <h4>Project 2</h4>
+                <p>Replace this placeholder with your content</p>
+            </div>
+        </div>
+
+        <!-- Portfolio Item 3 -->
+        <div class="portfolio-item">
+            <div class="portfolio-placeholder">
+                <div class="portfolio-placeholder-icon">🎬</div>
+                <h4>Project 3</h4>
+                <p>Replace this placeholder with your content</p>
+            </div>
+        </div>
+
+        <!-- Portfolio Item 4 -->
+        <div class="portfolio-item">
+            <div class="portfolio-placeholder">
+                <div class="portfolio-placeholder-icon">📷</div>
+                <h4>Project 4</h4>
+                <p>Replace this placeholder with your content</p>
+            </div>
+        </div>
+
+        <!-- Portfolio Item 5 -->
+        <div class="portfolio-item">
+            <div class="portfolio-placeholder">
+                <div class="portfolio-placeholder-icon">🎥</div>
+                <h4>Project 5</h4>
+                <p>Replace this placeholder with your content</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <h2 class="section-title">Let's Work Together</h2>
+    <p class="section-subtitle">Ready to bring your vision to life? Get in touch!</p>
+    
+    <div class="contact-info">
+        <div class="contact-item">
+            <span class="contact-item-label">Email</span>
+            <span class="contact-item-value"><a href="/cdn-cgi/l/email-protection#f78e988285d9929a969e9bb7928f969a879b92d994989a"><span class="__cf_email__" data-cfemail="bcc5d3c9ce92d9d1ddd5d0fcd9c4ddd1ccd0d992dfd3d1">[email&#160;protected]</span></a></span>
+        </div>
+        <div class="contact-item">
+            <span class="contact-item-label">Phone</span>
+            <span class="contact-item-value"><a href="tel:+15551234567">+1 (555) 123-4567</a></span>
+        </div>
+        <div class="contact-item">
+            <span class="contact-item-label">Website</span>
+            <span class="contact-item-value"><a href="https://www.yourwebsite.com" target="_blank">www.yourwebsite.com</a></span>
+        </div>
+    </div>
+
+    <div class="social-links">
+        <a href="https://instagram.com/yourhandle" target="_blank" title="Instagram">📷</a>
+        <a href="https://tiktok.com/@yourhandle" target="_blank" title="TikTok">🎵</a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn">💼</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+    <p>Photography & Videography Portfolio</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Smooth scroll animation on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in')
+```
